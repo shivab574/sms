@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School of Computer Science</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+:root {
+            --primary-blue: #006699;
+            --secondary-blue: #004466;
+            --accent-color: #FFA500;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-brand img {
+            max-height: 60px;
+        }
+
+        .nav-link {
+            color: white !important;
+            padding: 1rem !important;
+            font-size: 0.95rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+      /* Mega Dropdown Styles */
+.mega-dropdown {
+    position: static !important;
+}
+
+.mega-dropdown-menu {
+    padding: 20px;
+    width: 100vw;  /* Full width of the viewport */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+/* Dropdown Item Styling */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    display: none;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item i {
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateX(5px);
+}
+
+.academic-category {
+    margin-bottom: 1.5rem;
+}
+
+.academic-category-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-blue);
+}
+.academic-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+.academic-item:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateX(5px);
+}
+.academic-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    padding: 6px;
+    transition: all 0.3s ease;
+}
+.academic-item:hover .academic-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.academic-item-text {
+    font-size: 0.9rem;
+}
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+    .mega-dropdown-menu {
+        background: var(--secondary-blue);
+        padding: 1rem;
+    }
+
+    .academic-category-title {
+        color: white;
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .academic-item {
+        color: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .academic-icon {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    .mega-dropdown-menu .row {
+        flex-direction: column;
+    }
+
+    .mega-dropdown-menu .col-lg-3 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+        /* Global Styles */
+:root {
+    --primary-color: #004466;
+    --secondary-color: #1e40af;
+     --dark-color: #1f2937;
+    --light-color: #f3f4f6;
+    --transition-speed: 0.3s; 
+   
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Navigation */
+
+/* Hero Section */
+.hero {
+    height: 70vh;
+    background: url('https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&q=80') center/cover no-repeat fixed;
+    position: relative;
+    color: white;
+    overflow: hidden;
+}
+
+/* .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Stats Section */
+.stats-section {
+    background: var(--light-color);
+}
+
+.stat-card {
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed) ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+}
+.stat-number:after {
+        content: "+";
+        font-size: 1.2rem;
+        margin-left: 0.2rem;
+        color: #004466;
+        align-items:center;
+        font-size: 40px;
+    }
+
+/* Programs Section */
+.program-card {
+    perspective: 1500px;
+    background: transparent;
+    height: 500px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.program-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-front {
+    background: white;
+}
+
+.card-back {
+    background: var(--dark-color);
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Faculty Section */
+.faculty-card {
+    margin-bottom: 2rem;
+}
+
+.faculty-image-wrapper {
+    position: relative;
+    display: inline-block;
+    perspective: 1000px;
+}
+
+.faculty-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed) ease;
+}
+
+.faculty-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(58, 98, 184, 0.449); */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+    border-radius: 50%;
+}
+
+.faculty-image-wrapper:hover .faculty-overlay {
+    opacity: 1;
+}
+
+.faculty-details {
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Research Section */
+.parallax-section {
+    background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80') center/cover fixed;
+    position: relative;
+}
+
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.research-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    z-index: 1;
+}
+
+.research-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.icon-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background: var(--light-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-speed) ease;
+}
+
+.research-card:hover .icon-container {
+    transform: scale(1.1);
+}
+
+.research-icon {
+    font-size: 2rem;
+}
+
+.research-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.research-stats .stat {
+    text-align: center;
+}
+
+.research-stats .number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.research-stats .label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Facilities Section */
+.facility-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,  0, 0, 0.1);
+    transition: transform var(--transition-speed) ease;
+}
+
+.facility-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform var(--transition-speed) ease;
+}
+
+.facility-card:hover .facility-image {
+    transform: scale(1.1);
+}
+
+.facility-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: transform var(--transition-speed) ease;
+}
+
+.facility-card:hover .facility-content {
+    transform: translateY(0);
+}
+
+/* Timeline Section */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: var(--primary-color);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    width: 50%;
+    padding: 0 2rem;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform var(--transition-speed) ease;
+}
+
+.timeline-content:hover {
+    transform: scale(1.05);
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -62px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -62px;
+}
+
+/* Contact Form */
+:root {
+            --primary-color: #004466;
+            --secondary-color: #006699;
+            --text-color: #0c0c0c;
+            --background-color: rgba(255, 255, 255, 0.297);
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .bg-image {
+            background-image: url('images/ryan-jacobson-cXUOQWdRV4I-unsplash.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: auto;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form {
+            background-color: var(--background-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-title {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-control {
+            border: 1px solid #ced4da;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #2ecc71;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .success-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+/* Footer */
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    .timeline-item:nth-child(odd) {
+        text-align: left;
+    }
+    
+    .timeline-content::before {
+        left: -49px !important;
+    }
+    
+    .faculty-card img {
+        width: 150px;
+        height: 150px;
+    }
+}
+ /* footer */
+ :root {
+            --primary-blue: #006699;
+            --secondary-blue: #004466;
+            --accent-gold: #FFD700;
+            --text-light: #FFFFFF;
+            --text-dark: #333333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+        .footer {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--text-light);
+            padding: 60px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gold);
+        }
+
+        .footer h4 {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+            margin-top: 5px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--text-light);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-gold);
+            color: var(--secondary-blue);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+
+        .newsletter-form button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            background: var(--accent-gold);
+            color: var(--secondary-blue);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #fff;
+            color: var(--primary-blue);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        .footer-menu {
+            text-align: right;
+        }
+
+        .footer-menu a {
+            color: var(--text-light);
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-menu a:hover {
+            color: var(--accent-gold);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            max-width: 100px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .logo-container h3 {
+            color: var(--accent-gold);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 1199px) {
+            .footer-links li, .footer-contact li {
+                margin-bottom: 10px;
+            }
+            .social-icons a {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                margin-right: 5px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .footer [class^="col-"] {
+                margin-bottom: 30px;
+            }
+            .footer-menu {
+                text-align: left;
+                margin-top: 15px;
+            }
+            .footer-menu a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .footer {
+                padding: 40px 0 0;
+            }
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-container img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .footer h4 {
+                margin-top: 20px;
+            }
+            .footer-bottom {
+                text-align: center;
+            }
+            .footer-menu {
+                margin-top: 10px;
+                text-align: center;
+            }
+        }
+
+        /* Animation for links */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer-animated {
+            animation: fadeInUp 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top custom-navbar navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="nav.html">
+                <img src="images/1600w-mjY8ushmYT4.webp" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="nav.html" aria-label="Go to Home Page">
+                            Home
+                        </a>
+                    </li>                    
+                     <!-- About us Dropdown -->
+                     <li class="nav-item">
+                        <a class="nav-link" href="About.html">
+                            About us
+                        </a>                                                
+                    </li>
+                    <!-- Academics Mega Dropdown (Updated) -->
+                    <li class="nav-item mega-dropdown dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                             Academics
+                        </a>
+                        <div class="dropdown-menu mega-dropdown-menu">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <!-- Schools Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Schools</h3>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-plane"></i></span>
+                                                <span class="academic-item-text">School of Aeronautical Engineering</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-seedling"></i></span>
+                                                <span class="academic-item-text">School of Agriculture</span>
+                                            </a>
+                                            <a href="School of  Computer  Science.html" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-laptop-code"></i></span>
+                                                <span class="academic-item-text">School of Computer Science</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-cogs"></i></span>
+                                                <span class="academic-item-text">School of Engineering</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Departments Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Departments</h3>
+                                            <a href="Department of physics.html" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-atom"></i></span>
+                                                <span class="academic-item-text">Department of Physics</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-flask"></i></span>
+                                                <span class="academic-item-text">Department of Chemistry</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-calculator"></i></span>
+                                                <span class="academic-item-text">Department of Mathematics</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-dna"></i></span>
+                                                <span class="academic-item-text">Department of Biotechnology</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Programs Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Programs</h3>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-user-graduate"></i></span>
+                                                <span class="academic-item-text">Undergraduate Programs</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                                                <span class="academic-item-text">Postgraduate Programs</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-book"></i></span>
+                                                <span class="academic-item-text">Doctoral Programs</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-certificate"></i></span>
+                                                <span class="academic-item-text">Certificate Courses</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                     <!-- Resources Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Resources</h3>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-calendar-alt"></i></span>
+                                                <span class="academic-item-text">Academic Calendar</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-book-open"></i></span>
+                                                <span class="academic-item-text">Course Catalog</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-user-tie"></i></span>
+                                                <span class="academic-item-text">Faculty Directory</span>
+                                            </a>
+                                            <a href="library resources.html" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-university"></i></span>
+                                                <span class="academic-item-text">Library Resources</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Admission Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="Admission.html">
+                            Admission
+                        </a>                                                
+                    </li>
+                    <!-- Research Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="research centers.html"><i class="fas fa-microscope"></i> Research Centers</a></li>
+                            <li><a class="dropdown-item" href="laboratries.html"><i class="fas fa-flask"></i> Laboratories</a></li>
+                            <li><a class="dropdown-item" href="publications.html"><i class="fas fa-file-alt"></i> Publications</a></li>
+                            <li><a class="dropdown-item" href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                            <li><a class="dropdown-item" href="collaborations.html"><i class="fas fa-handshake"></i> Collaborations</a></li>
+                            <li><a class="dropdown-item" href="research scholars.html"><i class="fas fa-graduation-cap"></i> Research Scholars</a></li>
+                        </ul>
+                    </li>
+                    <!-- Campus Life Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Campus Life
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="accomadiation.html"><i class="fas fa-home"></i> Accommodation</a></li>
+                            <li><a class="dropdown-item" href="Dining.html"><i class="fas fa-utensils"></i> Dining</a></li>
+                            <li><a class="dropdown-item" href="Sports.html"><i class="fas fa-futbol"></i> Sports</a></li>
+                            <li><a class="dropdown-item" href="club.html "><i class="fas fa-users"></i> Clubs</a></li>
+                            <li><a class="dropdown-item" href="transportation.html"><i class="fas fa-bus"></i> Transportation</a></li>
+                            <li><a class="dropdown-item" href="health service.html"><i class="fas fa-first-aid"></i> Health Services</a></li>
+                        </ul>
+                    </li>
+                     <!-- Blog -->
+                     <li class="nav-item dropdown">
+                        <a class="nav-link" href="blog.html">
+                             Blogs
+                        </a>                        
+                        </li>
+                         <!-- contact us -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <header id="home" class="hero">
+        <div class="overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center text-white">
+                    <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">School of Computer Science</h1>
+                    <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">Shaping the Future of Technology Through Innovation and Education</p>
+                    <div class="animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="#programs" class="btn btn-primary btn-lg me-3">Explore Programs</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Counter Section -->
+    <section class="stats-section py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="500+">500+</div>
+                        <div class="stat-label">Students</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="150+">150+</div>
+                        <div class="stat-label">Faculty Members</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="95+">95+</div>
+                        <div class="stat-label">Success Rate (%)</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="500+">500+</div>
+                        <div class="stat-label">Research Papers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section with 3D Cards -->
+    <section id="programs" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Our Programs</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card program-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000" alt="Bachelor's Program" class="card-img-top">
+                                <div class="card-body">
+                                    <h3 class="card-title">Bachelor's Degree</h3>
+                                    <p class="card-text">Click to learn more</p>
+                                    <h>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum atque sequi quisquam unde id, eveniet eos dolore quas minima inventore.</h4>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-body">
+                                    <h3 class="card-title">Bachelor's Degree</h3>
+                                    <p class="card-text">Comprehensive undergraduate program covering fundamental computer science concepts and modern technologies.</p>
+                                    <ul class="list-unstyled">
+                                        <li>✓ Software Development</li>
+                                        <li>✓ Data Structures</li>
+                                        <li>✓ Algorithms</li>
+                                        <li>✓ Web Technologies</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card program-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1000" alt="Master's Program" class="card-img-top">
+                                <div class="card-body">
+                                    <h3 class="card-title">Master's Degree</h3>
+                                    <p class="card-text">Click to learn more <br> <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, facere!<br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, rem!</p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-body">
+                                    <h3 class="card-title">Master's Degree</h3>
+                                    <p class="card-text">Advanced studies focusing on specialized areas of computer science and research.</p>
+                                    <ul class="list-unstyled">
+                                        <li>✓ Artificial Intelligence</li>
+                                        <li>✓ Machine Learning</li>
+                                        <li>✓ Cloud Computing</li>
+                                        <li>✓ Cybersecurity</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card program-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="https://images.unsplash.com/photo-1532619187608-e5375cab36aa?auto=format&fit=crop&q=80&w=1000" alt="PhD Program" class="card-img-top">
+                                <div class="card-body">
+                                    <h3 class="card-title">Ph.D. Program</h3>
+                                    <p class="card-text">Click to learn more<br> <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, laborum!<br>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-body">
+                                    <h3 class="card-title">Ph.D. Program</h3>
+                                    <p class="card-text">Doctoral research program pushing the boundaries of computer science.</p>
+                                    <ul class="list-unstyled">
+                                        <li>✓ Advanced Research</li>
+                                        <li>✓ Publication Opportunities</li>
+                                        <li>✓ Industry Collaboration</li>
+                                        <li>✓ Academic Career Path</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Section with Hover Effects -->
+    <section id="faculty" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Our Faculty</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="faculty-card text-center">
+                        <div class="faculty-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=300&h=300" alt="Professor" class="rounded-circle mb-3">
+                            <div class="faculty-overlay">
+                                <div class="faculty-details">
+                                    <p>Ph.D. from MIT</p>
+                                    <p>15+ Years Experience</p>
+                                    <p>50+ Publications</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Dr. John Smith</h4>
+                        <p>AI & Machine Learning</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="faculty-card text-center">
+                        <div class="faculty-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300&h=300" alt="Professor" class="rounded-circle mb-3">
+                            <div class="faculty-overlay">
+                                <div class="faculty-details">
+                                    <p>Ph.D. from Stanford</p>
+                                    <p>12+ Years Experience</p>
+                                    <p>40+ Publications</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Dr. Sarah Johnson</h4>
+                        <p>Software Engineering</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="faculty-card text-center">
+                        <div class="faculty-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=300&h=300" alt="Professor" class="rounded-circle mb-3">
+                            <div class="faculty-overlay">
+                                <div class="faculty-details">
+                                    <p>Ph.D. from Berkeley</p>
+                                    <p>10+ Years Experience</p>
+                                    <p>35+ Publications</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Dr. Michael Chen</h4>
+                        <p>Cybersecurity</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="faculty-card text-center">
+                        <div class="faculty-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=300&h=300" alt="Professor" class="rounded-circle mb-3">
+                            <div class="faculty-overlay">
+                                <div class="faculty-details">
+                                    <p>Ph.D. from CMU</p>
+                                    <p>8+ Years Experience</p>
+                                    <p>30+ Publications</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Dr. Emily Brown</h4>
+                        <p>Data Science</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section with Parallax -->
+    <section id="research" class="py-5 parallax-section">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title text-white">Research Areas</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="research-card">
+                        <div class="icon-container mb-4">
+                            <i class="research-icon">🤖</i>
+                        </div>
+                        <h4>Artificial Intelligence</h4>
+                        <p>Advancing the frontiers of machine learning and networks.</p>
+                        <div class="research-stats">
+                            <div class="stat">
+                                <span class="number">25+</span>
+                                <span class="label">Projects</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">100+</span>
+                                <span class="label">Papers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="research-card">
+                        <div class="icon-container mb-4">
+                            <i class="research-icon">🔒</i>
+                        </div>
+                        <h4>Cybersecurity</h4>
+                        <p>Developing next-generation security solutions.</p>
+                        <div class="research-stats">
+                            <div class="stat">
+                                <span class="number">30+</span>
+                                <span class="label">Projects</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">80+</span>
+                                <span class="label">Papers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="research-card">
+                        <div class="icon-container mb-4">
+                            <i class="research-icon">☁️</i>
+                        </div>
+                        <h4>Cloud Computing</h4>
+                        <p>Innovating distributed systems and cloud architectures.</p>
+                        <div class="research-stats">
+                            <div class="stat">
+                                <span class="number">20+</span>
+                                <span class="label">Projects</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">60+</span>
+                                <span class="label">Papers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="research-card">
+                        <div class="icon-container mb-4">
+                            <i class="research-icon">📊</i>
+                        </div>
+                        <h4>Data Science</h4>
+                        <p>Analyzing big data for meaningful insights.</p>
+                        <div class="research-stats">
+                            <div class="stat">
+                                <span class="number">35+</span>
+                                <span class="label">Projects</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">90+</span>
+                                <span class="label">Papers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Our Facilities</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&q=80&w=1000" alt="Computer Lab" class="facility-image">
+                        <div class="facility-content">
+                            <h4>Advanced Computer Labs</h4>
+                            <p>State-of-the-art computing facilities with the latest hardware and software.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000" alt="Research Center" class="facility-image">
+                        <div class="facility-content">
+                            <h4>Research Centers</h4>
+                            <p>Dedicated research spaces for groundbreaking discoveries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section with Timeline -->
+    <section id="achievements" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Our Achievements</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2023</h4>
+                        <p>Ranked #1 in Computer Science Research</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2022</h4>
+                        <p>100+ Research Papers Published</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2021</h4>
+                        <p>Best Innovation Award</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2020</h4>
+                        <p>Excellence in Education Award</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with 3D Form -->
+    <div class="bg-image">
+        <div class="overlay"></div>
+        <div class="contact-container">
+            <form id="contactForm" class="contact-form">
+                <h2 class="form-title">Get in Touch</h2>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" id="program" required>
+                        <option value="">Select Program</option>
+                        <option value="bachelor">Bachelor's Degree</option>
+                        <option value="master">Master's Degree</option>
+                        <option value="phd">Ph.D. Program</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="successMessage" class="success-message">
+        <i class="fas fa-check-circle me-2"></i>Message sent successfully!
+    </div>
+    <!-- Footer -->
+       <!-- footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <div class="logo-container">
+                    <img src="images/1600w-mjY8ushmYT4.webp" alt="University Logo">
+                    <h>University Name</h4>
+                </div>
+                <p>Our university is committed to excellence in education, research, and community engagement. We strive to empower our students to become global leaders.</p>
+            </div>
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <h4>Quick Links</h4>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="admission.html"><i class="fas fa-chevron-right"></i> Admissions</a></li>
+                    <li><a href="School of  Computer  Science.html"><i class="fas fa-chevron-right"></i> Academics</a></li>
+                    <li><a href="research centers.html"><i class="fas fa-chevron-right"></i> Research</a></li>
+                    <li><a href="Dining.html"><i class="fas fa-chevron-right"></i> Campus Life</a></li>
+                    <!-- <li><a href="#"><i class="fas fa-chevron-right"></i> Alumni</a></li> -->
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact list-unstyled">
+                    <li><i class="fas fa-map-marker-alt"></i> <span>123 University Ave, City, State 12345</span></li>
+                    <li><i class="fas fa-phone"></i> <span>(123) 456-7890</span></li>
+                    <li><i class="fas fa-envelope"></i> <span>info@university.edu</span></li>
+                </ul>
+                <div class="social-icons mt-3">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <h4>Newsletter</h4>
+                <p>Stay updated with our latest news and events. Subscribe to our newsletter.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>&copy; 2024 University Name. All rights reserved.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer-menu">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // navbar
+   document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    const megaDropdown = document.querySelector('.mega-dropdown');
+    const isMobile = window.innerWidth <= 991.98;
+
+    dropdowns.forEach(dropdown => {
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+        // Check if dropdownToggle and dropdownMenu exist
+        if (dropdownToggle && dropdownMenu) {
+            if (!isMobile) {
+                dropdown.addEventListener('mouseenter', () => {
+                    dropdownMenu.classList.add('show');
+                });
+
+                dropdown.addEventListener('mouseleave', () => {
+                    dropdownMenu.classList.remove('show');
+                });
+            } else {
+                dropdownToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    dropdownMenu.classList.toggle('show');
+                });
+            }
+        }
+    });
+    // Special handling for mega dropdown on mobile
+    if (isMobile) {
+        const megaDropdownToggle = megaDropdown ? megaDropdown.querySelector('.dropdown-toggle') : null;
+        const megaDropdownMenu = megaDropdown ? megaDropdown.querySelector('.mega-dropdown-menu') : null;
+
+        // Check if megaDropdownToggle and megaDropdownMenu exist
+        if (megaDropdownToggle && megaDropdownMenu) {
+            megaDropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                megaDropdownMenu.classList.toggle('show');
+            });
+        }
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
+    });
+
+    // Prevent dropdowns from closing when clicking inside
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
+});
+        // Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+
+
+// Stats counter animation
+function animateStats() {
+    const stats = document.querySelectorAll('.stat-number');
+    stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 2000; // 2 seconds
+        const step = target / (duration / 16); // 60fps
+        let current = 0;
+
+        const updateStat = () => {
+            current += step;
+            if (current < target) {
+                stat.textContent = Math.round(current);
+                requestAnimationFrame(updateStat);
+            } else {
+                stat.textContent = target;
+            }
+        };
+
+        updateStat();
+    });
+}
+
+// Intersection Observer for stats animation
+const statsSection = document.querySelector('.stats-section');
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateStats();
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+if (statsSection) {
+    statsObserver.observe(statsSection);
+}
+
+// Parallax effect for research section
+window.addEventListener('scroll', () => {
+    const parallaxSection = document.querySelector('.parallax-section');
+    if (parallaxSection) {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * 0.5;
+        parallaxSection.style.backgroundPosition = `center ${rate}px`;
+    }
+});
+
+// Form submission handling with 3D effect
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const successMessage = document.getElementById('successMessage');
+            const submitButton = form.querySelector('.btn-submit');
+            
+            // Animate button
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitButton.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Show success message
+                successMessage.classList.add('show');
+                
+                // Reset button
+                submitButton.innerHTML = '<i class="fas fa-check me-2"></i>Sent!';
+                submitButton.style.backgroundColor = '#2ecc71';
+                
+                // Clear the form
+                form.reset();
+                
+                // Hide success message and reset button after 3 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                    submitButton.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Send Message';
+                    submitButton.style.backgroundColor = '';
+                    submitButton.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+
+        // Add subtle hover effect to form controls
+        const formControls = document.querySelectorAll('.form-control, .form-select');
+        formControls.forEach(control => {
+            control.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+            });
+            control.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
+
+// Floating animation for research cards
+const researchCards = document.querySelectorAll('.research-card');
+researchCards.forEach((card, index) => {
+    card.style.animation = `float 3s ease-in-out ${index * 0.2}s infinite`;
+});
+
+// Timeline animation
+const timelineItems = document.querySelectorAll('.timeline-item');
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            timelineObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+timelineItems.forEach(item => {
+    timelineObserver.observe(item);
+});
+ // footer
+        // Animate footer sections on scroll
+        function animateFooter() {
+    const footerSections = document.querySelectorAll('.footer-animated');
+    footerSections.forEach((section, index) => {
+        setTimeout(() => {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+}
+
+// Run animation when the page loads
+window.addEventListener('load', animateFooter);
+
+// Smooth scroll for footer links
+document.querySelectorAll('.footer-links a, .footer-menu a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Newsletter form submission (for demonstration)
+document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = this.querySelector('input[type="email"]').value;
+    alert(`Thank you for subscribing with: ${email}`);
+    this.reset();
+});
+    </script>
+</body>
+</html>

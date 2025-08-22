@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+          :root {
+            --primary-blue: #006699;
+            --secondary-blue: #004466;
+            --accent-color: #FFA500;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-brand img {
+            max-height: 60px;
+        }
+
+        .nav-link {
+            color: white !important;
+            padding: 1rem !important;
+            font-size: 0.95rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+      /* Mega Dropdown Styles */
+.mega-dropdown {
+    position: static !important;
+}
+
+.mega-dropdown-menu {
+    padding: 20px;
+    width: 100vw;  /* Full width of the viewport */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+/* Dropdown Item Styling */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    display: none;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item i {
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateX(5px);
+}
+
+.academic-category {
+    margin-bottom: 1.5rem;
+}
+
+.academic-category-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-blue);
+}
+.academic-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+.academic-item:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateX(5px);
+}
+.academic-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    padding: 6px;
+    transition: all 0.3s ease;
+}
+.academic-item:hover .academic-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.academic-item-text {
+    font-size: 0.9rem;
+}
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+    .mega-dropdown-menu {
+        background: var(--secondary-blue);
+        padding: 1rem;
+    }
+
+    .academic-category-title {
+        color: white;
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .academic-item {
+        color: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .academic-icon {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    .mega-dropdown-menu .row {
+        flex-direction: column;
+    }
+
+    .mega-dropdown-menu .col-lg-3 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --accent-color: #e74c3c;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80') center/cover no-repeat;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-read-more {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-read-more:hover {
+    background-color: #3a7bd5;
+}
+
+.card-category {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.sidebar-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.recent-post {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.recent-post-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.recent-post-content {
+    flex: 1;
+}
+
+.recent-post-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.recent-post-date {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.category-link {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.category-link:hover {
+    color: var(--primary-color);
+}
+
+.category-link i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+/* List View Styles */
+.list-view .card {
+    flex-direction: column;
+    width: 100%;
+}
+
+.list-view .card-img-top {
+    height: 300px;
+    width: 100%;
+}
+
+.list-view .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-view .card-text {
+    flex-grow: 1;
+}
+
+.list-view .card-footer {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.list-view .step-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.list-view .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.list-view .card-author,
+.list-view .card-comments {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.list-view .card-author i,
+.list-view .card-comments i {
+    margin-right: 5px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+          /* footer */
+        :root {
+            --primary-blue: #006699;
+            --secondary-blue: #004466;
+            --accent-gold: #FFD700;
+            --text-light: #FFFFFF;
+            --text-dark: #333333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+        .footer {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--text-light);
+            padding: 60px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gold);
+        }
+
+        .footer h4 {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+            margin-top: 5px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--text-light);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-gold);
+            color: var(--secondary-blue);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+
+        .newsletter-form button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            background: var(--accent-gold);
+            color: var(--secondary-blue);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #fff;
+            color: var(--primary-blue);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        .footer-menu {
+            text-align: right;
+        }
+
+        .footer-menu a {
+            color: var(--text-light);
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-menu a:hover {
+            color: var(--accent-gold);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            max-width: 100px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .logo-container h3 {
+            color: var(--accent-gold);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 1199px) {
+            .footer-links li, .footer-contact li {
+                margin-bottom: 10px;
+            }
+            .social-icons a {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                margin-right: 5px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .footer [class^="col-"] {
+                margin-bottom: 30px;
+            }
+            .footer-menu {
+                text-align: left;
+                margin-top: 15px;
+            }
+            .footer-menu a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .footer {
+                padding: 40px 0 0;
+            }
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-container img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .footer h4 {
+                margin-top: 20px;
+            }
+            .footer-bottom {
+                text-align: center;
+            }
+            .footer-menu {
+                margin-top: 10px;
+                text-align: center;
+            }
+        }
+
+        /* Animation for links */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer-animated {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-hover-zoom {
+            overflow: hidden;
+        }
+
+        .card-hover-zoom img {
+            transition: transform 0.3s ease;
+        }
+
+        .card-hover-zoom:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-flip {
+            perspective: 1000px;
+            background-color: transparent;
+        }
+
+        .card-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card-flip:hover .card-flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-flip-front, .card-flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .card-flip-back {
+            background-color: var(--primary-color);
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top custom-navbar navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="nav.html">
+                <img src="images/1600w-mjY8ushmYT4.webp" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="nav.html" aria-label="Go to Home Page">
+                            Home
+                        </a>
+                    </li>                    
+                     <!-- About us Dropdown -->
+                     <li class="nav-item">
+                        <a class="nav-link" href="About.html">
+                            About us
+                        </a>                                                
+                    </li>
+                    <!-- Academics Mega Dropdown (Updated) -->
+                    <li class="nav-item mega-dropdown dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                             Academics
+                        </a>
+                        <div class="dropdown-menu mega-dropdown-menu">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <!-- Schools Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Schools</h3>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-plane"></i></span>
+                                                <span class="academic-item-text">School of Aeronautical Engineering</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-seedling"></i></span>
+                                                <span class="academic-item-text">School of Agriculture</span>
+                                            </a>
+                                            <a href="School of  Computer  Science.html" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-laptop-code"></i></span>
+                                                <span class="academic-item-text">School of Computer Science</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-cogs"></i></span>
+                                                <span class="academic-item-text">School of Engineering</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Departments Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Departments</h3>
+                                            <a href="Department of physics.html" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-atom"></i></span>
+                                                <span class="academic-item-text">Department of Physics</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-flask"></i></span>
+                                                <span class="academic-item-text">Department of Chemistry</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-calculator"></i></span>
+                                                <span class="academic-item-text">Department of Mathematics</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-dna"></i></span>
+                                                <span class="academic-item-text">Department of Biotechnology</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Programs Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Programs</h3>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-user-graduate"></i></span>
+                                                <span class="academic-item-text">Undergraduate Programs</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                                                <span class="academic-item-text">Postgraduate Programs</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-book"></i></span>
+                                                <span class="academic-item-text">Doctoral Programs</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-certificate"></i></span>
+                                                <span class="academic-item-text">Certificate Courses</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                     <!-- Resources Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Resources</h3>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-calendar-alt"></i></span>
+                                                <span class="academic-item-text">Academic Calendar</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-book-open"></i></span>
+                                                <span class="academic-item-text">Course Catalog</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-user-tie"></i></span>
+                                                <span class="academic-item-text">Faculty Directory</span>
+                                            </a>
+                                            <a href="library resources.html" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-university"></i></span>
+                                                <span class="academic-item-text">Library Resources</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Admission Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="Admission.html">
+                            Admission
+                        </a>                                                
+                    </li>
+                    <!-- Research Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="research centers.html"><i class="fas fa-microscope"></i> Research Centers</a></li>
+                            <li><a class="dropdown-item" href="laboratries.html"><i class="fas fa-flask"></i> Laboratories</a></li>
+                            <li><a class="dropdown-item" href="publications.html"><i class="fas fa-file-alt"></i> Publications</a></li>
+                            <li><a class="dropdown-item" href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                            <li><a class="dropdown-item" href="collaborations.html"><i class="fas fa-handshake"></i> Collaborations</a></li>
+                            <li><a class="dropdown-item" href="research scholars.html"><i class="fas fa-graduation-cap"></i> Research Scholars</a></li>
+                        </ul>
+                    </li>
+                    <!-- Campus Life Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Campus Life
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="accomadiation.html"><i class="fas fa-home"></i> Accommodation</a></li>
+                            <li><a class="dropdown-item" href="Dining.html"><i class="fas fa-utensils"></i> Dining</a></li>
+                            <li><a class="dropdown-item" href="Sports.html"><i class="fas fa-futbol"></i> Sports</a></li>
+                            <li><a class="dropdown-item" href="club.html"><i class="fas fa-users"></i> Clubs</a></li>
+                            <li><a class="dropdown-item" href="transportation.html"><i class="fas fa-bus"></i> Transportation</a></li>
+                            <li><a class="dropdown-item" href="health service.html"><i class="fas fa-first-aid"></i> Health Services</a></li>
+                        </ul>
+                    </li>
+                     <!-- Blog -->
+                     <li class="nav-item dropdown">
+                        <a class="nav-link" href="blog.html">
+                             Blogs
+                        </a>                        
+                        </li>
+                         <!-- contact us -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>School Blog</h1>
+            <p>Discover the latest news and achievements from our vibrant school community</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <button class="btn btn-primary me-2" id="gridViewBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="btn btn-secondary" id="listViewBtn"><i class="fas fa-list"></i> List</button>
+                </div>
+                <div id="blogPosts" class="row">
+                    <!-- Blog posts will be dynamically inserted here -->
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Recent Posts</h3>
+                        <div id="recentPosts">
+                            <!-- Recent posts will be dynamically inserted here -->
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <div id="categories">
+                            <!-- Categories will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <div class="logo-container">
+                    <img src="images/1600w-mjY8ushmYT4.webp" alt="University Logo">
+                    <h>University Name</h4>
+                </div>
+                <p>Our university is committed to excellence in education, research, and community engagement. We strive to empower our students to become global leaders.</p>
+            </div>
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <h4>Quick Links</h4>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="admission.html"><i class="fas fa-chevron-right"></i> Admissions</a></li>
+                    <li><a href="School of  Computer  Science.html"><i class="fas fa-chevron-right"></i> Academics</a></li>
+                    <li><a href="research centers.html"><i class="fas fa-chevron-right"></i> Research</a></li>
+                    <li><a href="accomadiation.html"><i class="fas fa-chevron-right"></i> Campus Life</a></li>
+                    <!-- <li><a href="#"><i class="fas fa-chevron-right"></i> Alumni</a></li> -->
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact list-unstyled">
+                    <li><i class="fas fa-map-marker-alt"></i> <span>123 University Ave, City, State 12345</span></li>
+                    <li><i class="fas fa-phone"></i> <span>(123) 456-7890</span></li>
+                    <li><i class="fas fa-envelope"></i> <span>info@university.edu</span></li>
+                </ul>
+                <div class="social-icons mt-3">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <h4>Newsletter</h4>
+                <p>Stay updated with our latest news and events. Subscribe to our newsletter.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>&copy; 2024 University Name. All rights reserved.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer-menu">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+         // navbar
+   document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    const megaDropdown = document.querySelector('.mega-dropdown');
+    const isMobile = window.innerWidth <= 991.98;
+
+    dropdowns.forEach(dropdown => {
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+        // Check if dropdownToggle and dropdownMenu exist
+        if (dropdownToggle && dropdownMenu) {
+            if (!isMobile) {
+                dropdown.addEventListener('mouseenter', () => {
+                    dropdownMenu.classList.add('show');
+                });
+
+                dropdown.addEventListener('mouseleave', () => {
+                    dropdownMenu.classList.remove('show');
+                });
+            } else {
+                dropdownToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    dropdownMenu.classList.toggle('show');
+                });
+            }
+        }
+    });
+    // Special handling for mega dropdown on mobile
+    if (isMobile) {
+        const megaDropdownToggle = megaDropdown ? megaDropdown.querySelector('.dropdown-toggle') : null;
+        const megaDropdownMenu = megaDropdown ? megaDropdown.querySelector('.mega-dropdown-menu') : null;
+
+        // Check if megaDropdownToggle and megaDropdownMenu exist
+        if (megaDropdownToggle && megaDropdownMenu) {
+            megaDropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                megaDropdownMenu.classList.toggle('show');
+            });
+        }
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
+    });
+
+    // Prevent dropdowns from closing when clicking inside
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
+});
+const blogPosts = [
+  {
+    title: "Annual Science Fair Highlights",
+    content:
+      "Our annual science fair was a huge success! Students showcased innovative projects, demonstrating their passion for science and technology. From robotics to environmental studies, the diversity of projects was impressive. The event not only highlighted the scientific acumen of our students but also their ability to present complex ideas in an engaging manner. Judges from local universities and tech companies were impressed by the quality of work presented.",
+    image: "images/activity.jpg",
+    date: "May 15, 2023",
+    category: "Science",
+    author: "Dr. Jane Smith",
+    comments: 12,
+  },
+  {
+    title: "Student Art Exhibition Opens",
+    content:
+      "The annual student art exhibition is now open to the public. Come and see the incredible talent of our young artists on display. This year's theme, 'Visions of Tomorrow,' has inspired a wide range of interpretations across various mediums including painting, sculpture, and digital art. The exhibition is a testament to the creativity and imagination of our students. Many pieces reflect on current social issues and environmental concerns, showcasing our students' awareness and engagement with the world around them.",
+    image: "images/art.jpg",
+    date: "May 10, 2023",
+    category: "Arts",
+    author: "Prof. Michael Johnson",
+    comments: 8,
+  },
+  {
+    title: "Sports Day: A Day of Champions",
+    content:
+      "Our annual Sports Day was filled with excitement, teamwork, and outstanding performances. Students from all grades participated in a variety of events, from track and field to team sports. The day was not just about winning, but about sportsmanship, perseverance, and school spirit. Special congratulations to the Blue House for winning the overall championship! The event also featured demonstrations from local sports celebrities, inspiring our students to pursue their athletic dreams.",
+    image: "images/art.jpg",
+    date: "May 5, 2023",
+    category: "Sports",
+    author: "Coach Sarah Thompson",
+    comments: 15,
+  },
+  {
+    title: "Innovative Learning Initiative Launched",
+    content:
+      "Our school introduces a groundbreaking approach to personalized learning, leveraging technology and adaptive curricula. This new initiative aims to cater to individual learning styles and paces, ensuring that every student can reach their full potential. The program includes AI-driven learning platforms, virtual reality experiences, and collaborative online projects. Teachers have undergone extensive training to implement these new tools effectively. Early results show increased student engagement and improved learning outcomes across various subjects.",
+    image: "images/activity.jpg",
+    date: "May 1, 2023",
+    category: "Education",
+    author: "Principal Robert Davis",
+    comments: 20,
+  },
+]
+
+const recentPosts = [
+  {
+    title: "Summer Reading Challenge Announced",
+    image: "images/art.jpg",
+    date: "June 1, 2023",
+  },
+  {
+    title: "New Language Lab Inaugurated",
+    image: "images/art.jpg",
+    date: "May 28, 2023",
+  },
+  {
+    title: "Students Win Regional Debate Competition",
+    image: "images/art.jpg",
+    date: "May 22, 2023",
+  },
+]
+
+const categories = [
+  { name: "Academics", icon: "fas fa-graduation-cap" },
+  { name: "Arts & Culture", icon: "fas fa-palette" },
+  { name: "Sports", icon: "fas fa-running" },
+  { name: "Community Service", icon: "fas fa-hands-helping" },
+  { name: "Student Life", icon: "fas fa-users" },
+]
+
+function createBlogPostCard(post, index, isListView) {
+  return `
+        <div class="${isListView ? "col-12" : "col-md-6"} animate-fade-in">
+            <div class="card">
+               
+                <img src="${post.image}" class="card-img-top" alt="${post.title}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">${post.title}</h5>
+                    <p class="card-text flex-grow-1">${isListView ? post.content : post.content.substring(0, 100) + "..."}</p>
+                    <div class="card-meta">
+                        <span class="card-author"><i class="fas fa-user"></i> ${post.author}</span>
+                        <span class="card-comments"><i class="fas fa-comments"></i> ${post.comments} comments</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted"><i class="far fa-calendar-alt me-1"></i>${post.date}</small>
+                    <span class="card-category">${post.category}</span>
+                    <a href="#" class="btn btn-read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    `
+}
+
+function renderBlogPosts(isListView = false) {
+  const blogPostsContainer = document.getElementById("blogPosts")
+  blogPostsContainer.innerHTML = blogPosts.map((post, index) => createBlogPostCard(post, index, isListView)).join("")
+  blogPostsContainer.className = isListView ? "list-view" : "row"
+}
+
+function renderRecentPosts() {
+  const recentPostsContainer = document.getElementById("recentPosts")
+  recentPostsContainer.innerHTML = recentPosts
+    .map(
+      (post) => `
+        <div class="recent-post">
+            <img src="${post.image}" alt="${post.title}" class="recent-post-img">
+            <div class="recent-post-content">
+                <h6 class="recent-post-title">${post.title}</h6>
+                <small class="recent-post-date">${post.date}</small>
+            </div>
+        </div>
+    `,
+    )
+    .join("")
+}
+
+function renderCategories() {
+  const categoriesContainer = document.getElementById("categories")
+  categoriesContainer.innerHTML = categories
+    .map(
+      (category) => `
+        <a href="#" class="category-link"><i class="${category.icon}"></i> ${category.name}</a>
+    `,
+    )
+    .join("")
+}
+
+function initializeViewButtons() {
+  const gridViewBtn = document.getElementById("gridViewBtn")
+  const listViewBtn = document.getElementById("listViewBtn")
+
+  gridViewBtn.addEventListener("click", () => {
+    renderBlogPosts(false)
+    gridViewBtn.classList.add("btn-primary")
+    gridViewBtn.classList.remove("btn-secondary")
+    listViewBtn.classList.add("btn-secondary")
+    listViewBtn.classList.remove("btn-primary")
+  })
+
+  listViewBtn.addEventListener("click", () => {
+    renderBlogPosts(true)
+    listViewBtn.classList.add("btn-primary")
+    listViewBtn.classList.remove("btn-secondary")
+    gridViewBtn.classList.add("btn-secondary")
+    gridViewBtn.classList.remove("btn-primary")
+  })
+}
+
+window.addEventListener("load", () => {
+  renderBlogPosts()
+  renderRecentPosts()
+  renderCategories()
+  initializeViewButtons()
+})
+
+ // footer
+        // Animate footer sections on scroll
+        function animateFooter() {
+    const footerSections = document.querySelectorAll('.footer-animated');
+    footerSections.forEach((section, index) => {
+        setTimeout(() => {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+}
+
+// Run animation when the page loads
+window.addEventListener('load', animateFooter);
+
+// Smooth scroll for footer links
+document.querySelectorAll('.footer-links a, .footer-menu a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Newsletter form submission (for demonstration)
+document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = this.querySelector('input[type="email"]').value;
+    alert(`Thank you for subscribing with: ${email}`);
+    this.reset();
+});
+    </script>
+</body>
+</html>

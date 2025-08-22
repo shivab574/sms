@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Health Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+          :root {
+            --primary-blue: #006699;
+            --secondary-blue: #004466;
+            --accent-color: #FFA500;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-brand img {
+            max-height: 60px;
+        }
+
+        .nav-link {
+            color: white !important;
+            padding: 1rem !important;
+            font-size: 0.95rem;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+      /* Mega Dropdown Styles */
+.mega-dropdown {
+    position: static !important;
+}
+
+.mega-dropdown-menu {
+    padding: 20px;
+    width: 100vw;  /* Full width of the viewport */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+/* Dropdown Item Styling */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    display: none;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item i {
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateX(5px);
+}
+
+.academic-category {
+    margin-bottom: 1.5rem;
+}
+
+.academic-category-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-blue);
+}
+.academic-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+.academic-item:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateX(5px);
+}
+.academic-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    padding: 6px;
+    transition: all 0.3s ease;
+}
+.academic-item:hover .academic-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.academic-item-text {
+    font-size: 0.9rem;
+}
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+    .mega-dropdown-menu {
+        background: var(--secondary-blue);
+        padding: 1rem;
+    }
+
+    .academic-category-title {
+        color: white;
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .academic-item {
+        color: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .academic-icon {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    .mega-dropdown-menu .row {
+        flex-direction: column;
+    }
+
+    .mega-dropdown-menu .col-lg-3 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #004466;
+            margin-bottom: 1rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-header {
+            background: #004466;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .service-details {
+            padding: 2rem;
+        }
+
+        .staff-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .staff-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+
+        .health-tips-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                        url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .health-tip-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .health-tip-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .appointment-section {
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .appointment-feature {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .appointment-feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .appointment-icon {
+            font-size: 3rem;
+            color: #004466;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                        url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+            
+            .service-card {
+                margin-bottom: 2rem;
+            }
+        }
+        /* footer */
+ :root {
+            --primary-blue: #006699;
+            --secondary-blue: #004466;
+            --accent-gold: #FFD700;
+            --text-light: #FFFFFF;
+            --text-dark: #333333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+        .footer {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--text-light);
+            padding: 60px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gold);
+        }
+
+        .footer h4 {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+            margin-top: 5px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--text-light);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-gold);
+            color: var(--secondary-blue);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+
+        .newsletter-form button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            background: var(--accent-gold);
+            color: var(--secondary-blue);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #fff;
+            color: var(--primary-blue);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        .footer-menu {
+            text-align: right;
+        }
+
+        .footer-menu a {
+            color: var(--text-light);
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-menu a:hover {
+            color: var(--accent-gold);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            max-width: 100px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .logo-container h3 {
+            color: var(--accent-gold);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 1199px) {
+            .footer-links li, .footer-contact li {
+                margin-bottom: 10px;
+            }
+            .social-icons a {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                margin-right: 5px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .footer [class^="col-"] {
+                margin-bottom: 30px;
+            }
+            .footer-menu {
+                text-align: left;
+                margin-top: 15px;
+            }
+            .footer-menu a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .footer {
+                padding: 40px 0 0;
+            }
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-container img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .footer h4 {
+                margin-top: 20px;
+            }
+            .footer-bottom {
+                text-align: center;
+            }
+            .footer-menu {
+                margin-top: 10px;
+                text-align: center;
+            }
+        }
+
+        /* Animation for links */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer-animated {
+            animation: fadeInUp 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top custom-navbar navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="nav.html">
+                <img src="images/1600w-mjY8ushmYT4.webp" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="nav.html" aria-label="Go to Home Page">
+                            Home
+                        </a>
+                    </li>                    
+                     <!-- About us Dropdown -->
+                     <li class="nav-item">
+                        <a class="nav-link" href="About.html">
+                            About us
+                        </a>                                                
+                    </li>
+                    <!-- Academics Mega Dropdown (Updated) -->
+                    <li class="nav-item mega-dropdown dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                             Academics
+                        </a>
+                        <div class="dropdown-menu mega-dropdown-menu">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <!-- Schools Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Schools</h3>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-plane"></i></span>
+                                                <span class="academic-item-text">School of Aeronautical Engineering</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-seedling"></i></span>
+                                                <span class="academic-item-text">School of Agriculture</span>
+                                            </a>
+                                            <a href="School of  Computer  Science.html" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-laptop-code"></i></span>
+                                                <span class="academic-item-text">School of Computer Science</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-cogs"></i></span>
+                                                <span class="academic-item-text">School of Engineering</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Departments Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Departments</h3>
+                                            <a href="Department of physics.html" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-atom"></i></span>
+                                                <span class="academic-item-text">Department of Physics</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-flask"></i></span>
+                                                <span class="academic-item-text">Department of Chemistry</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-calculator"></i></span>
+                                                <span class="academic-item-text">Department of Mathematics</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-dna"></i></span>
+                                                <span class="academic-item-text">Department of Biotechnology</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Programs Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Programs</h3>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-user-graduate"></i></span>
+                                                <span class="academic-item-text">Undergraduate Programs</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                                                <span class="academic-item-text">Postgraduate Programs</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-book"></i></span>
+                                                <span class="academic-item-text">Doctoral Programs</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-certificate"></i></span>
+                                                <span class="academic-item-text">Certificate Courses</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                     <!-- Resources Column -->
+                                    <div class="col-lg-3">
+                                        <div class="academic-category">
+                                            <h3 class="academic-category-title">Resources</h3>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-calendar-alt"></i></span>
+                                                <span class="academic-item-text">Academic Calendar</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-book-open"></i></span>
+                                                <span class="academic-item-text">Course Catalog</span>
+                                            </a>
+                                            <a href="#" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-user-tie"></i></span>
+                                                <span class="academic-item-text">Faculty Directory</span>
+                                            </a>
+                                            <a href="library resources.html" class="academic-item">
+                                                <span class="academic-icon"><i class="fas fa-university"></i></span>
+                                                <span class="academic-item-text">Library Resources</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Admission Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="Admission.html">
+                            Admission
+                        </a>                                                
+                    </li>
+                    <!-- Research Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="research centers.html"><i class="fas fa-microscope"></i> Research Centers</a></li>
+                            <li><a class="dropdown-item" href="laboratries.html"><i class="fas fa-flask"></i> Laboratories</a></li>
+                            <li><a class="dropdown-item" href="publications.html"><i class="fas fa-file-alt"></i> Publications</a></li>
+                            <li><a class="dropdown-item" href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                            <li><a class="dropdown-item" href="collaborations.html"><i class="fas fa-handshake"></i> Collaborations</a></li>
+                            <li><a class="dropdown-item" href="research scholars.html"><i class="fas fa-graduation-cap"></i> Research Scholars</a></li>
+                        </ul>
+                    </li>
+                    <!-- Campus Life Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Campus Life
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="accomadiation.html"><i class="fas fa-home"></i> Accommodation</a></li>
+                            <li><a class="dropdown-item" href="Dining.html"><i class="fas fa-utensils"></i> Dining</a></li>
+                            <li><a class="dropdown-item" href="Sports.html"><i class="fas fa-futbol"></i> Sports</a></li>
+                            <li><a class="dropdown-item" href="club.html "><i class="fas fa-users"></i> Clubs</a></li>
+                            <li><a class="dropdown-item" href="transportation.html"><i class="fas fa-bus"></i> Transportation</a></li>
+                            <li><a class="dropdown-item" href="health service.html"><i class="fas fa-first-aid"></i> Health Services</a></li>
+                        </ul>
+                    </li>
+                     <!-- Blog -->
+                     <li class="nav-item dropdown">
+                        <a class="nav-link" href="blog.html">
+                             Blogs
+                        </a>                        
+                        </li>
+                         <!-- contact us -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container hero-content">
+            <h1 class="display-3 text-white mb-4" data-aos="fade-up">School Health Services</h1>
+            <p class="lead text-white mb-4" data-aos="fade-up" data-aos-delay="200">Promoting health and wellness for our students</p>
+            <div class="d-flex justify-content-center gap-3" data-aos="fade-up" data-aos-delay="400">
+                <a href="#services" class="btn btn-primary btn-lg">Our Services</a>
+                <a href="#appointment" class="btn btn-outline-light btn-lg">Book Appointment</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="container my-5">
+        <h2 class="text-center mb-5" data-aos="fade-up">Why Choose Our Health Services</h2>
+        <div class="row">
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="feature-card text-center">
+                    <i class="fas fa-user-md feature-icon"></i>
+                    <h3>Expert Staff</h3>
+                    <p>Qualified healthcare professionals dedicated to student well-being</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card text-center">
+                    <i class="fas fa-heartbeat feature-icon"></i>
+                    <h3>Comprehensive Care</h3>
+                    <p>From routine check-ups to emergency care, we've got you covered</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card text-center">
+                    <i class="fas fa-clock feature-icon"></i>
+                    <h3>24/7 Availability</h3>
+                    <p>Round-the-clock medical support for emergencies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container my-2">
+        <h2 class="text-center mb-4" data-aos="fade-up">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4" data-aos="fade-up">
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>General Check-ups</h3>
+                    </div>
+                    <div class="service-details">
+                        <p>Regular health assessments to ensure student well-being</p>
+                        <ul>
+                            <li>Physical examinations</li>
+                            <li>Vision and hearing tests</li>
+                            <li>Growth monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Vaccination Programs</h3>
+                    </div>
+                    <div class="service-details">
+                        <p>Keeping students protected against preventable diseases</p>
+                        <ul>
+                            <li>Routine immunizations</li>
+                            <li>Flu shots</li>
+                            <li>Vaccination records management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card">
+                    <div class="service-header">
+                        <h3>Mental Health Support</h3>
+                    </div>
+                    <div class="service-details">
+                        <p>Comprehensive mental health services for students</p>
+                        <ul>
+                            <li>Counseling sessions</li>
+                            <li>Stress management workshops</li>
+                            <li>Crisis intervention</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section class="bg-light py-1">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Our Healthcare Team</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="staff-card">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Dr. Sarah Johnson" class="staff-img">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>School Physician</p>
+                        <p>Specializes in pediatric care</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="staff-card">
+                        <img src="https://images.unsplash.com/photo-1551836022-8b2858c9c69b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Nurse Mike Thompson" class="staff-img">
+                        <h3>Nurse Mike Thompson</h3>
+                        <p>School Nurse</p>
+                        <p>Expert in emergency care</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="staff-card">
+                        <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Ms. Emily Chen" class="staff-img">
+                        <h3>Ms. Emily Chen</h3>
+                        <p>Mental Health Counselor</p>
+                        <p>Specialized in adolescent psychology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Tips Section -->
+    <section class="health-tips-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Health Tips for Students</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="health-tip-card">
+                        <i class="fas fa-apple-alt mb-4 fa-2x"></i>
+                        <h3>Healthy Eating</h3>
+                        <p>Maintain a balanced diet with plenty of fruits and vegetables</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="health-tip-card">
+                        <i class="fas fa-running mb-4 fa-2x"></i>
+                        <h3>Regular Exercise</h3>
+                        <p>Aim for at least 60 minutes of physical activity daily</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="health-tip-card">
+                        <i class="fas fa-bed mb-4 fa-2x"></i>
+                        <h3>Adequate Sleep</h3>
+                        <p>Get 8-10 hours of sleep each night for optimal health and academic performance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="appointment-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Book an Appointment</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="appointment-feature">
+                        <i class="fas fa-calendar-alt appointment-icon"></i>
+                        <h3>Online Booking</h3>
+                        <p>Schedule your appointment easily through our online portal</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="appointment-feature">
+                        <i class="fas fa-clock appointment-icon"></i>
+                        <h3>Flexible Timing</h3>
+                        <p>Choose from a range of available time slots that suit your schedule</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="appointment-feature">
+                        <i class="fas fa-comments appointment-icon"></i>
+                        <h3>Consultation Options</h3>
+                        <p>Choose between in-person or virtual consultations for your convenience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8" data-aos="fade-up">
+                    <div class="contact-card">
+                        <h2 class="text-center mb-4">Health Services Contact</h2>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <h4><i class="fas fa-clock me-2"></i>Office Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                                <p>Saturday: 9:00 AM - 1:00 PM</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h4><i class="fas fa-phone me-2"></i>Emergency Contacts</h4>
+                                <p>Health Office: (555) 123-4567</p>
+                                <p>24/7 Helpline: (555) 987-6543</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <div class="logo-container">
+                    <img src="images/1600w-mjY8ushmYT4.webp" alt="University Logo">
+                    <h>University Name</h4>
+                </div>
+                <p>Our university is committed to excellence in education, research, and community engagement. We strive to empower our students to become global leaders.</p>
+            </div>
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <h4>Quick Links</h4>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="admission.html"><i class="fas fa-chevron-right"></i> Admissions</a></li>
+                    <li><a href="School of  Computer  Science.html"><i class="fas fa-chevron-right"></i> Academics</a></li>
+                    <li><a href="research scholars.html"><i class="fas fa-chevron-right"></i> Research</a></li>
+                    <li><a href="Dining.html"><i class="fas fa-chevron-right"></i> Campus Life</a></li>
+                    <!-- <li><a href="#"><i class="fas fa-chevron-right"></i> Alumni</a></li> -->
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact list-unstyled">
+                    <li><i class="fas fa-map-marker-alt"></i> <span>123 University Ave, City, State 12345</span></li>
+                    <li><i class="fas fa-phone"></i> <span>(123) 456-7890</span></li>
+                    <li><i class="fas fa-envelope"></i> <span>info@university.edu</span></li>
+                </ul>
+                <div class="social-icons mt-3">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 footer-animated">
+                <h4>Newsletter</h4>
+                <p>Stay updated with our latest news and events. Subscribe to our newsletter.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>&copy; 2024 University Name. All rights reserved.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer-menu">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+         // navbar
+   document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    const megaDropdown = document.querySelector('.mega-dropdown');
+    const isMobile = window.innerWidth <= 991.98;
+
+    dropdowns.forEach(dropdown => {
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+        // Check if dropdownToggle and dropdownMenu exist
+        if (dropdownToggle && dropdownMenu) {
+            if (!isMobile) {
+                dropdown.addEventListener('mouseenter', () => {
+                    dropdownMenu.classList.add('show');
+                });
+
+                dropdown.addEventListener('mouseleave', () => {
+                    dropdownMenu.classList.remove('show');
+                });
+            } else {
+                dropdownToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    dropdownMenu.classList.toggle('show');
+                });
+            }
+        }
+    });
+    // Special handling for mega dropdown on mobile
+    if (isMobile) {
+        const megaDropdownToggle = megaDropdown ? megaDropdown.querySelector('.dropdown-toggle') : null;
+        const megaDropdownMenu = megaDropdown ? megaDropdown.querySelector('.mega-dropdown-menu') : null;
+
+        // Check if megaDropdownToggle and megaDropdownMenu exist
+        if (megaDropdownToggle && megaDropdownMenu) {
+            megaDropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                megaDropdownMenu.classList.toggle('show');
+            });
+        }
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
+    });
+
+    // Prevent dropdowns from closing when clicking inside
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
+});
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
